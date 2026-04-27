@@ -1,45 +1,11 @@
-// void คือ function ที่ไม่มีการ return ค่าอะไร || ไม่จำเป็นต้องใส่ leyword void ก็ได้
-function sayHi():void{
-    console.log("Hello TypeScript");
-}
-sayHi();
 
-// function ที่มีการรับค่า (parameter)
-
-function total(name:string, age:number):void{
-    console.log(`Your name is ${name} and your age is: ${age}`);
-}
-total("Peerawat", 18);
-
-// function ที่มีการส่งค่า return -------------------------
-
-function getDiscount():number{
-    return 500;
+// Default parameter
+function showEmployee(name:string, age:number, address:string = "Phitsanulok"){
+    console.log(`name = ${name}, age = ${age}, address = ${address}`);
 }
 
-function getAddress():string{
-    return "Phitsanulok";
-}
-
-console.log(`my number is ${getDiscount()} and i live in ${getAddress()}`)
-
-// function ที่มีการรัลและส่งค่า --------------------------------------
-
-function checkNumber(num:number):string{
-    if(num % 2 === 0){
-        return "Even";
-    }
-    else{
-        return "Odd";
-    }
-}
-
-console.log(checkNumber(23));
-
-// Arrow Function -----------------------------------------------------
-
-const total1 = (num1:number, num2:number):number => {
-    return num1 + num2;
-}
-
-console.log(total1(10, 5));
+showEmployee("Tj", 18, "Phitsanulok");
+showEmployee("boss", 19, "Phitsanulok");
+showEmployee("Tata", 19, "Bangkok");
+showEmployee("Poom", 20, "Bangkok");
+showEmployee("pea", 20);
