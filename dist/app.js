@@ -1,29 +1,22 @@
 "use strict";
-// Function Overloading
+// Spread Operator เป็นรูปแบบการกระจายสมิชิกใน array ออกมาใช้งานโดนเติมเครื่องหมาย ... ด้านหน้าตัวแปร array
 Object.defineProperty(exports, "__esModule", { value: true });
-function sayHi(name) {
-    if (!name) {
-        return `Hello TypeScript`;
-    }
-    if (typeof name == "string") {
-        return `Hello ${name}`;
-    }
-    else {
-        throw new Error("ชนิดข้อมูลไม่ถูกต้อง");
-    }
+const section = ["บัญชี", "การเงิน"];
+const departments = ["programmer", "marketing", "graphics"];
+const fruits = ["apple", "banana", "coconut"];
+const newAll = [...section, ...departments];
+newAll.forEach((element) => {
+    console.log(element);
+});
+const displayAll = newAll.map(element => {
+    return element;
+});
+displayAll.push(...fruits); // ในการ push ก็ต้องใช้เป็น spread operator
+function displayForeach(displayAll) {
+    displayAll.forEach(element => {
+        console.log(element);
+    });
 }
-console.log(sayHi());
-console.log(sayHi("Tjay"));
-// function total(a:string,b:string):string
-function total(a, b) {
-    if (typeof a == "number" && typeof b == "number") {
-        return a + b;
-    }
-    if (typeof a == "string" && typeof b == "string") {
-        return parseInt(a) + parseInt(b);
-    }
-    throw new Error("ชนิดข้อมูลไม่ถูกต้อง");
-}
-console.log(total(100, 200));
-console.log(total("100", "200"));
+displayForeach(displayAll);
+console.log(displayAll);
 //# sourceMappingURL=app.js.map

@@ -1,38 +1,26 @@
-// Function Overloading
+// Spread Operator เป็นรูปแบบการกระจายสมิชิกใน array ออกมาใช้งานโดนเติมเครื่องหมาย ... ด้านหน้าตัวแปร array
 
-function sayHi():string
-function sayHi(name:string):string
-function sayHi(name?:unknown):unknown{
-    if(!name){
-        return `Hello TypeScript`;
-    }
-    if(typeof name == "string"){
-        return `Hello ${name}`;
-    }
-    else{
-        throw new Error("ชนิดข้อมูลไม่ถูกต้อง");
-    }
-    
-}
+const section: string[] = ["บัญชี", "การเงิน"];
+const departments: string[] = ["programmer", "marketing", "graphics"];
+const fruits: string[] = ["apple", "banana", "coconut"];
+const newAll: string[] = [...section, ...departments];
 
-console.log(sayHi());
-console.log(sayHi("Tjay"));
-// console.log(sayHi(12));
 
-// Function สำหรับรับ parameter 2 จำนวน
+newAll.forEach((element) => {
+  console.log(element);
+});
 
-function total(a:number,b:number):number
-function total(a:string,b:string):number
-// function total(a:string,b:string):string
-function total(a:unknown,b:unknown){
-    if(typeof a == "number" && typeof b == "number"){
-        return a+b;
-    }
-    if(typeof a == "string" && typeof b == "string"){
-        return parseInt(a) + parseInt(b);
-    }
-    throw new Error("ชนิดข้อมูลไม่ถูกต้อง");
-}
+const displayAll = newAll.map(element => {
+    return element;
+});
 
-console.log(total(100,200));
-console.log(total("100","200"));
+displayAll.push(...fruits); // ในการ push ก็ต้องใช้เป็น spread operator
+
+function displayForeach(displayAll:string[]):void{
+    displayAll.forEach(element => {
+        console.log(element);
+    });
+}  
+
+displayForeach(displayAll);
+console.log(displayAll);
