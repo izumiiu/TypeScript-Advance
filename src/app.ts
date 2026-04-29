@@ -1,26 +1,18 @@
-// Spread Operator เป็นรูปแบบการกระจายสมิชิกใน array ออกมาใช้งานโดนเติมเครื่องหมาย ... ด้านหน้าตัวแปร array
-
-const section: string[] = ["บัญชี", "การเงิน"];
-const departments: string[] = ["programmer", "marketing", "graphics"];
-const fruits: string[] = ["apple", "banana", "coconut"];
-const newAll: string[] = [...section, ...departments];
+// Rest Parameter  = ใช้ในการส่งค่า Parameter(Array) เข้าไปทำงานใน function โดยไม่จำกัดจำนวนโดยใช้เครื่องหมาย ...
 
 
-newAll.forEach((element) => {
-  console.log(element);
-});
+// function total (...numbers:number[]){}
 
-const displayAll = newAll.map(element => {
-    return element;
-});
+// const total = (...numbers:number[]) => {
+//     const totalSum = numbers.reduce((accumulator, element) => {
+//         return accumulator + element;
+//     }, 0);
+//     return totalSum;
+// }
 
-displayAll.push(...fruits); // ในการ push ก็ต้องใช้เป็น spread operator
-
-function displayForeach(displayAll:string[]):void{
-    displayAll.forEach(element => {
-        console.log(element);
-    });
-}  
-
-displayForeach(displayAll);
-console.log(displayAll);
+const total = (...numbers:number[]) => {
+    return numbers.reduce((accumulator, element) => {
+        return accumulator + element;
+    }, 0);
+}
+console.log(total(100,200,300,400,500));

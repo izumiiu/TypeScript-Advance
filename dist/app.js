@@ -1,22 +1,17 @@
 "use strict";
-// Spread Operator เป็นรูปแบบการกระจายสมิชิกใน array ออกมาใช้งานโดนเติมเครื่องหมาย ... ด้านหน้าตัวแปร array
+// Rest Parameter  = ใช้ในการส่งค่า Parameter(Array) เข้าไปทำงานใน function โดยไม่จำกัดจำนวนโดยใช้เครื่องหมาย ...
 Object.defineProperty(exports, "__esModule", { value: true });
-const section = ["บัญชี", "การเงิน"];
-const departments = ["programmer", "marketing", "graphics"];
-const fruits = ["apple", "banana", "coconut"];
-const newAll = [...section, ...departments];
-newAll.forEach((element) => {
-    console.log(element);
-});
-const displayAll = newAll.map(element => {
-    return element;
-});
-displayAll.push(...fruits); // ในการ push ก็ต้องใช้เป็น spread operator
-function displayForeach(displayAll) {
-    displayAll.forEach(element => {
-        console.log(element);
-    });
-}
-displayForeach(displayAll);
-console.log(displayAll);
+// function total (...numbers:number[]){}
+// const total = (...numbers:number[]) => {
+//     const totalSum = numbers.reduce((accumulator, element) => {
+//         return accumulator + element;
+//     }, 0);
+//     return totalSum;
+// }
+const total = (...numbers) => {
+    return numbers.reduce((accumulator, element) => {
+        return accumulator + element;
+    }, 0);
+};
+console.log(total(100, 200, 300, 400, 500));
 //# sourceMappingURL=app.js.map
