@@ -1,52 +1,38 @@
-// Array
-// array แบบไม่กำหนดค่าเริ่มต้น
-const users:string[] = ["tata","poom","pea"];
-users.push("Tjay");
-users.push("Boss");
-console.log(users);
-const ages:number[]=[18,20,25,13,16,20];
+// Function Overloading
 
-// for(let i = 0; i < users.length; i++){
-//     console.log(users[i]);
-// }
-
-users.forEach((element) => {
-    console.log(element);
-});
-
-console.log(ages.filter(element => {
-    return element >= 18;
-}));
-
-// Array & TypeAliases -------------------------------------------------------------------------------------------------------------
-
-type Employee = {
-    name:string,
-    salary:number,
-    department:string
+function sayHi():string
+function sayHi(name:string):string
+function sayHi(name?:unknown):unknown{
+    if(!name){
+        return `Hello TypeScript`;
+    }
+    if(typeof name == "string"){
+        return `Hello ${name}`;
+    }
+    else{
+        throw new Error("ชนิดข้อมูลไม่ถูกต้อง");
+    }
+    
 }
 
-const employees:Employee[] = [];
-employees.push({name:"Tjay", salary:300000, department:"senior engineer"});
-employees.push({name:"boss", salary:300000, department:"Doctor"});
-employees.push({name:"poom", salary:300000, department:"mechanical engineer"});
-employees.push({name:"pea", salary:300000, department:"software engineer"});
-employees.push({name:"tata", salary:300000, department:"Dark bussiness"});
+console.log(sayHi());
+console.log(sayHi("Tjay"));
+// console.log(sayHi(12));
 
-for(let person in employees){
-    console.log(`${employees[person]?.name}`); //สัญลักษณ์ ?. คือ Optional Chaining 
+// Function สำหรับรับ parameter 2 จำนวน
+
+function total(a:number,b:number):number
+function total(a:string,b:string):number
+// function total(a:string,b:string):string
+function total(a:unknown,b:unknown){
+    if(typeof a == "number" && typeof b == "number"){
+        return a+b;
+    }
+    if(typeof a == "string" && typeof b == "string"){
+        return parseInt(a) + parseInt(b);
+    }
+    throw new Error("ชนิดข้อมูลไม่ถูกต้อง");
 }
 
-employees.forEach(element => {
-    // console.log(element);
-    console.log(`${element.name} ${element.salary} ${element.department}`);
-});
-
-
-
-
-
-
-
-
-
+console.log(total(100,200));
+console.log(total("100","200"));
