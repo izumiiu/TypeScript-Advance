@@ -1,26 +1,32 @@
 "use strict";
-// Type Aliases = เป็นการกำหนดโครงสร้าง
-// let ชื่อตัวแปร : ชื่อTypeAliases = {property:value,property:value}
-// Optional Properties = คือการระบุว่า properties ที่ทำงานอยู่ใน Type Aliases นั้นสามารถกำหนดค่าได้หรือไม่กำหนดค่าก็ได้โดยใช้เครื่องหมาย ?
-// โครงสร้างคำสั่ง type ชื่อTypeAliases = {property?:type,}
 Object.defineProperty(exports, "__esModule", { value: true });
-let emp1 = { id: 1, name: "Peerawat", salary: 500000, phone: "065-414-9927" };
-let emp2 = { id: 2, name: "Thanakorn", salary: 300000, phone: "090-990-9990" };
-let emp3 = { id: 3, name: "Tata", salary: 200000, };
-console.log(emp1);
-console.log(emp2);
-console.log(emp3);
-let person1 = {
-    name: "Tjay",
-    age: 18,
-    contact: "jprwtt"
-};
-person1.name = "zac"; // ถ้ามีการเปลียนค่าของ readonly properties ระบบจะแจ้ง error ทันที
-function displayInfo(info) {
-    console.log(info);
-    console.log(info.name);
-    console.log(info.age);
-    console.log(info.contact);
+// Array
+// array แบบไม่กำหนดค่าเริ่มต้น
+const users = ["tata", "poom", "pea"];
+users.push("Tjay");
+users.push("Boss");
+console.log(users);
+const ages = [18, 20, 25, 13, 16, 20];
+// for(let i = 0; i < users.length; i++){
+//     console.log(users[i]);
+// }
+users.forEach((element) => {
+    console.log(element);
+});
+console.log(ages.filter(element => {
+    return element >= 18;
+}));
+const employees = [];
+employees.push({ name: "Tjay", salary: 300000, department: "senior engineer" });
+employees.push({ name: "boss", salary: 300000, department: "Doctor" });
+employees.push({ name: "poom", salary: 300000, department: "mechanical engineer" });
+employees.push({ name: "pea", salary: 300000, department: "software engineer" });
+employees.push({ name: "tata", salary: 300000, department: "Dark bussiness" });
+for (let person in employees) {
+    console.log(`${employees[person]?.name}`); //สัญลักษณ์ ?. คือ Optional Chaining 
 }
-displayInfo(person1);
+employees.forEach(element => {
+    // console.log(element);
+    console.log(`${element.name} ${element.salary} ${element.department}`);
+});
 //# sourceMappingURL=app.js.map
