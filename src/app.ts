@@ -1,18 +1,35 @@
-// Rest Parameter  = ใช้ในการส่งค่า Parameter(Array) เข้าไปทำงานใน function โดยไม่จำกัดจำนวนโดยใช้เครื่องหมาย ...
+// Destructuring(การสลายโครงสร้าง) = การกำหนดค่าที่อยู่ภายใน Array หรือ Object ไห้กับตัวแปร
+// โดยใช้วิธีการจับคู่ตัวแปรนั้นกับค่าใน Array หรือ Object แทน
+// const colors = ["ขาว", "แดง"]
+// const a = colors[0] // a = ขาว
+// const b = colors[1] // b = แดง
 
+const colors:string[] = ["red", "green", "blue"];
+const [red,green,blue] = colors
+console.log(red);
+console.log(green);
+console.log(blue);
 
-// function total (...numbers:number[]){}
+// let a:number = 1;
+// let b:number = 2;
+// [a,b] = [b,a];
+// console.log(a);
+// console.log(b);
 
-// const total = (...numbers:number[]) => {
-//     const totalSum = numbers.reduce((accumulator, element) => {
-//         return accumulator + element;
-//     }, 0);
-//     return totalSum;
-// }
-
-const total = (...numbers:number[]) => {
-    return numbers.reduce((accumulator, element) => {
-        return accumulator + element;
-    }, 0);
+// Object Destructuring ------------------------------------------------------------------------------
+const person = {
+    name: "Tjay",
+    age: 18,
+    address: "Phitsanulok"
 }
-console.log(total(100,200,300,400,500));
+
+// ส่วนของ Object Destructuring จะใช้เป็น วงเล็บปีกกา {}
+const {name, age, address} = person;
+
+console.log(name);
+console.log(age);
+console.log(address);
+
+
+
+
