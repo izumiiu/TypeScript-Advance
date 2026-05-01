@@ -1,29 +1,26 @@
 "use strict";
-// Destructuring(การสลายโครงสร้าง) = การกำหนดค่าที่อยู่ภายใน Array หรือ Object ไห้กับตัวแปร
-// โดยใช้วิธีการจับคู่ตัวแปรนั้นกับค่าใน Array หรือ Object แทน
-// const colors = ["ขาว", "แดง"]
-// const a = colors[0] // a = ขาว
-// const b = colors[1] // b = แดง
+// การสร้าง Tuple คล้ายกับ Array แต่ต่างกันตรงที่ Tuple สามารถเก็บกลุ่มข้อมูลที่มีชนิดข้อมูลต่างกันได้
+// Array ขนาดมีความยืดหยุ่น (Dynamic Size) สมาชิกใน Array ต้องเหมือนกัน
+// Tuple มีขนาดตายตัว (Fixed size) สมาชิกใน Tuple มีชนิดข้อมูลต่งกันได้โดยต้องระบบชนิดข้อมูลกำกับ
 Object.defineProperty(exports, "__esModule", { value: true });
-const colors = ["red", "green", "blue"];
-const [red, green, blue] = colors;
-console.log(red);
-console.log(green);
-console.log(blue);
-// let a:number = 1;
-// let b:number = 2;
-// [a,b] = [b,a];
-// console.log(a);
-// console.log(b);
-// Object Destructuring ------------------------------------------------------------------------------
-const person = {
-    name: "Tjay",
-    age: 18,
-    address: "Phitsanulok"
-};
-// ส่วนของ Object Destructuring จะใช้เป็น วงเล็บปีกกา {}
-const { name, age, address } = person;
-console.log(name);
-console.log(age);
-console.log(address);
+const point = [10, 20, "Tjay"];
+console.log(point);
+point[0] = 100;
+point[1] = 200;
+point.forEach(element => {
+    console.log(element);
+});
+console.log(point[0]);
+//----------------------------------------------------------------------------------------------------------------------------------------------
+const goodStatus = [200, "ok"];
+console.log(goodStatus);
+// Tuple Label คือ การกำหนดชื่อกำกับภายในชนิดข้อมูลที่ทำงานอยู่ใน Tuple-------------------------------------------------------------------------
+// const point:[x:number, y:number] = [5,10];
+// const good:[code:number,staus:string] = [200,"OK"];
+const score = [10, 20];
+const badStatus = [200, "ok"];
+const notFound = [404, "notFound"];
+const badRequest = [400, "คำขอไม่ถูกต้อง"];
+const statusCode = [200, "OK"];
+console.log(statusCode);
 //# sourceMappingURL=app.js.map
